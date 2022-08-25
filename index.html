@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Homework week 2✨</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/835e50169e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <main>
+        <span>
+          <a href="#" id="celsius-symbol">
+            Cº
+          </a>
+          |
+          <a href="#" id="fahrenheit-symbol">
+            Fº
+          </a>
+        </span>
+        <div class="row">
+          <div class="col-5 forecast-today">
+            <h1 id="display-city">
+              Ålesund
+            </h1>
+            <h4>
+              Today's date
+            </h4>
+            <h2> 
+              <span id="display-temp">
+                21
+              </span>              
+              °C
+            </h2>
+            <h3>
+              <i class="fa-solid fa-sun"></i>
+            </h3>
+            <div>
+              Feels like 
+              <span id="display-feel">
+              25
+              </span>
+              °C
+            </div>
+            <div>
+              wind 
+              <span id="display-wind">
+                2
+              </span>
+              m/s
+            </div>
+            <div>
+              humidity 
+              <span id="display-humidity">
+                40
+              </span>
+              %
+            </div>
+          </div>
+          <div class="col-7 forecast-styling">
+            <div class="next-day-1 forecast-next-day">
+              Friday 23°C
+              <i class="fa-solid fa-cloud-sun"></i>
+            </div>
+            <div class="next-day-2 forecast-next-day">
+              Saturday 24°C
+              <i class="fa-solid fa-sun"></i>
+            </div>
+            <div class="next-day-3 forecast-next-day">
+              Sunday 18°C
+              <i class="fa-solid fa-cloud-sun"></i>
+            </div>
+            <div class="next-day-4 forecast-next-day">
+              Monday 15°C
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+            <div class="next-day-5 forecast-next-day">
+              Tuesday 14°C
+              <i class="fa-solid fa-cloud-showers-heavy"></i>
+            </div>
+          </div>
+        </div>
+      </main>
+      <section>
+        <form class="new-city" id="city-form">
+          <div class="row">
+            <div class="col-6">
+              <input
+                type="search"
+                placeholder="Search for a new city"
+                class="search-bar"
+                id="city-bar"
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-3 go-button">
+              <input
+                type="submit"
+                value="Go!"
+                class="search-button form-control"
+              />
+            </div>
+            <div class="col-3 current-button">
+              <input
+                type="submit"
+                value="Current"
+                class="search-button form-control"
+                id="current-location"
+              />
+            </div>
+          </div>
+        </form>
+        <br />
+        <p>
+          or go to...
+        </p>
+      </section>
+      <ul class="favorite-cities">
+        <li class="first-city">
+          Sydney
+        </li>
+        <li class="second-city">
+          New York
+        </li>
+        <li class="third-city">
+          Cannes
+        </li>
+        <li class="fourth-city">
+          Singapore
+        </li>
+      </ul>
+
+      <section>
+        <h1 class="headline">
+          Fancy Forecast
+        </h1>
+      </section>
+
+      <footer>
+        Coded by Lea Irene Larssen
+      </footer>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/index.js"></script>
+  </body>
+</html>
