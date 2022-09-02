@@ -113,3 +113,5 @@ let celsiusLink = document.querySelector("#celsius-symbol");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 let celsiusTemp = null;
+
+searchCity("Ålesund");
