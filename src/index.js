@@ -89,14 +89,19 @@ function searchPosition(position) {
 function displayFahrenheitTemp(event) {
   event.preventDefault;
   let displayTemp = document.querySelector("#display-temp");
+  let displayFeelingTemp = document.querySelector("#display-feel");
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   displayTemp.innerHTML = Math.round(fahrenheitTemp);
+  displayFeelingTemp.innerHTML = Math.round(fahrenheitTemp);
+
 }
 
 function displayCelsiusTemp(event) {
   event.preventDefault;
   let displayTemp = document.querySelector("#display-temp");
+  let displayFeelingTemp = document.querySelector("#display-feel");
   displayTemp.innerHTML = Math.round(celsiusTemp);
+  displayFeelingTemp.innerHTML = Math.round(celsiusTemp);
 }
 
 
