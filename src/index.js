@@ -21,6 +21,7 @@ let days = [
 let todaysDate = document.querySelector("h4");
 todaysDate.innerHTML = `${days[currentDay]} ${currentHour}:${currentMinutes}`;
 
+
 //function changeToCelsius() {
 //  let currentTemperature = document.querySelector("h2");
 //  currentTemperature.innerHTML = "21ºC";
@@ -50,6 +51,7 @@ function searchCity(newCity) {
 }
 
 function showCityForecast(response) {
+   console.log(response.data);
   document.querySelector("#display-city").innerHTML = response.data.name;
   document.querySelector("#display-temp").innerHTML = Math.round(
     response.data.main.temp
@@ -62,7 +64,17 @@ function showCityForecast(response) {
   );
   document.querySelector("#display-humidity").innerHTML =
     response.data.main.humidity;
+  
+  let description = document.querySelector("#description");
+  description.innerHTML = response.data.weather[0].description;
+  let iconElement = document.querySelector("#weather-icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
 
 function showCurrentLocation(event) {
   event.preventDefault();
