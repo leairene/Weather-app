@@ -7,7 +7,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.row {
+.forecast-container {
   margin: 0 auto;
   max-width: 800px;
 }
@@ -39,7 +39,7 @@ h4:first-letter {
   text-transform: uppercase;
 }
 
-img {
+.current-weather {
   font-size: 50px;
 }
 
@@ -57,8 +57,10 @@ img {
   padding: 10px 30px;
 }
 
-.fa-solid {
-  text-align: right;
+.forecast-weather {
+  max-width:55px;
+  position: absolute;
+  top: 122px;
 }
 
 section {

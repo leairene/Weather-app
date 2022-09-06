@@ -21,23 +21,6 @@ let days = [
 let todaysDate = document.querySelector("h4");
 todaysDate.innerHTML = `${days[currentDay]} ${currentHour}:${currentMinutes}`;
 
-
-//function changeToCelsius() {
-//  let currentTemperature = document.querySelector("h2");
-//  currentTemperature.innerHTML = "21ºC";
-//}
-//
-//let celsiusDegrees = document.querySelector("#celsius-symbol");
-//celsiusDegrees.addEventListener("click", changeToCelsius);
-//
-//function changeToFahrenheit() {
-//  let currentTemperature = document.querySelector("h2");
-//  currentTemperature.innerHTML = "70ºF";
-//}
-//
-//let fahrenheitDegrees = document.querySelector("#fahrenheit-symbol");
-//fahrenheitDegrees.addEventListener("click", changeToFahrenheit);
-
 function handleSubmit(event) {
   event.preventDefault();
   let newCity = document.querySelector("#city-bar").value;
@@ -74,6 +57,37 @@ function showCityForecast(response) {
   celsiusTemp = response.data.main.temp;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  
+  let forecastHTML = `<div class="row ">`;
+
+  let days = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
+  
+  days.forEach(function(day) {
+    forecastHTML = forecastHTML + `    
+        <div class="row forecast-next-day">
+          <div class="col-6">
+              ${day}
+          </div>
+          <div class="col-4 forecast-temperature">
+            23°C
+          </div>
+          <div class="col-2">
+            <img 
+            class="forecast-weather"
+            src="http://openweathermap.org/img/wn/02d@2x.png"
+            alt="clouded sun"
+            />
+          </div>
+        </div>
+      `;
+  })
+  forecastHTML = forecastHTML + `</div>`;
+  
+  forecastElement.innerHTML = forecastHTML;
+}
+
 
 function showCurrentLocation(event) {
   event.preventDefault();
@@ -93,7 +107,6 @@ function displayFahrenheitTemp(event) {
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   displayTemp.innerHTML = Math.round(fahrenheitTemp);
   displayFeelingTemp.innerHTML = Math.round(fahrenheitTemp);
-
 }
 
 function displayCelsiusTemp(event) {
@@ -120,3 +133,4 @@ celsiusLink.addEventListener("click", displayCelsiusTemp);
 let celsiusTemp = null;
 
 searchCity("Ålesund");
+displayForecast();

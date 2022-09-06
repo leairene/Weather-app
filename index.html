@@ -36,7 +36,7 @@
             Fº
           </a>
         </span>
-        <div class="row">
+        <div class="row forecast-container">
           <div class="col-5 forecast-today">
             <h1 id="display-city">
               Ålesund
@@ -53,7 +53,7 @@
               </span>              
               °C
             </h2>
-            <img 
+            <img class="current-weather"
               id="weather-icon"
               src= "https://openweathermap.org/img/wn/10d@2x.png"
               alt= "current weather"/>
@@ -79,27 +79,7 @@
               %
             </div>
           </div>
-          <div class="col-7 forecast-styling">
-            <div class="next-day-1 forecast-next-day">
-              Friday 23°C
-              <i class="fa-solid fa-cloud-sun"></i>
-            </div>
-            <div class="next-day-2 forecast-next-day">
-              Saturday 24°C
-              <i class="fa-solid fa-sun"></i>
-            </div>
-            <div class="next-day-3 forecast-next-day">
-              Sunday 18°C
-              <i class="fa-solid fa-cloud-sun"></i>
-            </div>
-            <div class="next-day-4 forecast-next-day">
-              Monday 15°C
-              <i class="fa-solid fa-cloud"></i>
-            </div>
-            <div class="next-day-5 forecast-next-day">
-              Tuesday 14°C
-              <i class="fa-solid fa-cloud-showers-heavy"></i>
-            </div>
+          <div class="col-7 row forecast-styling" id="forecast">
           </div>
         </div>
       </main>
