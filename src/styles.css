@@ -45,7 +45,7 @@ h4:first-letter {
 
 .forecast-styling {
   background-color: bisque;
-  padding: 40px;
+  padding: 30px;
   border-bottom: 2px solid black;
 }
 
@@ -54,13 +54,12 @@ h4:first-letter {
   border: 3px solid #fddcd2;
   border-radius: 5px;
   margin: 10px 0;
-  padding: 10px 30px;
+  padding: 5px 30px;
+  padding-top: 10px;
 }
 
 .forecast-weather {
-  max-width:55px;
-  position: absolute;
-  top: 122px;
+  max-width: 30px;
 }
 
 section {

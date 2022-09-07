@@ -65,7 +65,9 @@ function displayForecast() {
   let days = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
   
   days.forEach(function(day) {
-    forecastHTML = forecastHTML + `    
+    forecastHTML =
+      forecastHTML +
+      `    
         <div class="row forecast-next-day">
           <div class="col-6">
               ${day}
@@ -76,7 +78,7 @@ function displayForecast() {
           <div class="col-2">
             <img 
             class="forecast-weather"
-            src="http://openweathermap.org/img/wn/02d@2x.png"
+            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt="clouded sun"
             />
           </div>
@@ -84,7 +86,7 @@ function displayForecast() {
       `;
   })
   forecastHTML = forecastHTML + `</div>`;
-  
+
   forecastElement.innerHTML = forecastHTML;
 }
 
