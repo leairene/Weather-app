@@ -122,15 +122,6 @@ function searchPosition(position) {
   axios.get(apiUrl).then(showCityForecast);
 }
 
-function displayFahrenheitTemp(event) {
-  event.preventDefault;
-  let displayTemp = document.querySelector("#display-temp");
-  let displayFeelingTemp = document.querySelector("#display-feel");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  displayTemp.innerHTML = Math.round(fahrenheitTemp);
-  displayFeelingTemp.innerHTML = Math.round(fahrenheitTemp);
-}
-
 function displayCelsiusTemp(event) {
   event.preventDefault;
   let displayTemp = document.querySelector("#display-temp");
@@ -146,12 +137,5 @@ cityForm.addEventListener("submit", handleSubmit);
 let currentLocationBtn = document.querySelector("#current-location");
 currentLocationBtn.addEventListener("click", showCurrentLocation);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-symbol");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
-
-let celsiusLink = document.querySelector("#celsius-symbol");
-celsiusLink.addEventListener("click", displayCelsiusTemp);
-
-let celsiusTemp = null;
 
 searchCity("Ålesund");
