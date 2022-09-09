@@ -21,6 +21,14 @@ let days = [
 let todaysDate = document.querySelector("h4");
 todaysDate.innerHTML = `${days[currentDay]} ${currentHour}:${currentMinutes}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Friday", "Saturday"];
+
+  return days[day];
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   let newCity = document.querySelector("#city-bar").value;
@@ -69,38 +77,39 @@ function getForecast(coordinates) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   
   let forecastHTML = `<div class="row ">`;
-
-  let days = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
-  
-  days.forEach(function(day) {
-    forecastHTML =
-      forecastHTML +
-      `    
-        <div class="row forecast-next-day">
-          <div class="col-6">
-              ${day}
+  forecast.forEach(function(forecastDay, index) {
+    if (index < 5) {
+        forecastHTML =
+          forecastHTML +
+          `    
+          <div class="row forecast-next-day">
+            <div class="col-6">
+                ${formatDay(forecastDay.dt)}
+            </div>
+            <div class="col-4 forecast-temperature">
+              ${Math.round(forecastDay.temp.day)}°C
+            </div>
+            <div class="col-2">
+              <img 
+              class="forecast-weather"
+              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+              alt="clouded sun"
+              />
+            </div>
           </div>
-          <div class="col-4 forecast-temperature">
-            23°C
-          </div>
-          <div class="col-2">
-            <img 
-            class="forecast-weather"
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt="clouded sun"
-            />
-          </div>
-        </div>
-      `;
+        `;
+    }
   })
   forecastHTML = forecastHTML + `</div>`;
 
   forecastElement.innerHTML = forecastHTML;
 }
+
+
 
 function showCurrentLocation(event) {
   event.preventDefault();
