@@ -24,7 +24,7 @@ todaysDate.innerHTML = `${days[currentDay]} ${currentHour}:${currentMinutes}`;
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Friday", "Saturday"];
+  let days = ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"];
 
   return days[day];
 }
@@ -58,7 +58,7 @@ function showCityForecast(response) {
   document.querySelector("#description").innerHTML = response.data.weather[0].description;
   iconElement.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `${displayImage(response.data.weather[0].icon)}`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
@@ -76,13 +76,39 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+function displayImage(icon) {
+  let iconPath = "";
+  if (icon === "01d.png" || icon === "01n.png") {
+    iconPath = "media/sunny.svg";
+  } else if (icon === "02d.png" ||icon === "02n.png") {
+    iconPath = "media/partly-cloudy.svg";
+  } else if (
+    icon === "03d.png" || icon === "03n.png" || icon === "04d.png" || icon === "04n.png") {
+      iconPath = "media/partly-cloudy.svg";
+    } else if ( icon === "09d.png" || icon === "09d.png") {
+      iconPath = "media/shower-rain.svg";
+    } else if ( icon === "10d.png" || icon === "10n.png") {
+      iconPath = "media/rainy.svg";
+    } else if (icon === "11d.png" || icon === "11n.png") {
+      iconPath = "media/lightning.svg";
+    } else if (icon === "13d.png" || icon === "13n.png") {
+      iconPath = "media/snow.svg";
+    } else if (icon == "50d.png" || icon === "50n.png") {
+      iconPath = "media/foggy.svg";
+    } else {
+      iconPath = "media/sunny.svg";
+    }
+
+    return iconPath;
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   
   let forecastHTML = `<div class="row ">`;
   forecast.forEach(function(forecastDay, index) {
-    if (index < 5) {
+    if (index < 6) {
         forecastHTML =
           forecastHTML +
           `    
@@ -96,8 +122,9 @@ function displayForecast(response) {
             <div class="col-2">
               <img 
               class="forecast-weather"
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-              alt="clouded sun"
+              src= ${displayImage(forecastDay.weather[0].icon)}
+              alt= ${forecastDay.weather[0].description}
+              width = "50px"
               />
             </div>
           </div>
