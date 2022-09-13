@@ -83,7 +83,7 @@ function displayImage(icon) {
     iconPath = "media/partly-cloudy.svg";
   } else if (icon === "03d" || icon === "03n" || icon === "04d" || icon === "04n") {
     iconPath = "media/partly-cloudy.svg";
-  } else if ( icon === "09d" || icon === "09d") {
+  } else if ( icon === "09d" || icon === "09n") {
     iconPath = "media/shower-rain.svg";
   } else if ( icon === "10d" || icon === "10n") {
     iconPath = "media/rainy.svg";
