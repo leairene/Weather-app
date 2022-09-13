@@ -61,6 +61,7 @@ function showCityForecast(response) {
     `${displayImage(response.data.weather[0].icon)}`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("style", "width 90px; height: 90px;");
 
   celsiusTemp = response.data.main.temp;
 

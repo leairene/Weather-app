@@ -35,12 +35,17 @@ h4 {
   font-weight: 400; 
 }
 
-h4:first-letter {
+h4::first-letter {
   text-transform: uppercase;
 }
 
+h2 {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
 .current-weather {
-  font-size: 50px;
+  margin-bottom: 20px;
 }
 
 .forecast-styling {
