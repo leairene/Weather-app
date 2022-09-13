@@ -131,6 +131,11 @@ li {
   width: 150px;
 }
 
+.first-city:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
 .second-city {
   background-image: url("../media/newyork.jpg");
   background-repeat: no-repeat;
@@ -139,12 +144,22 @@ li {
   width: 150px;
 }
 
+.second-city:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
 .third-city {
   background-image: url("../media/cannes.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50%;
-  width: 150px;
+  width: 150px; 
+}
+
+.third-city:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 .fourth-city {
@@ -153,6 +168,11 @@ li {
   background-size: cover;
   border-radius: 50%;
   width: 150px;
+}
+
+.fourth-city:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 section h1 {

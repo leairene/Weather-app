@@ -24,7 +24,7 @@ todaysDate.innerHTML = `${days[currentDay]} ${currentHour}:${currentMinutes}`;
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"];
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
   return days[day];
 }
@@ -68,38 +68,35 @@ function showCityForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
-
   let apiKey = `b9b01b314c8b7bd51fdfba206fbf2d6a`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  
   axios.get(apiUrl).then(displayForecast);
 }
 
 function displayImage(icon) {
   let iconPath = "";
-  if (icon === "01d.png" || icon === "01n.png") {
+  if (icon === "01d" || icon === "01n") {
     iconPath = "media/sunny.svg";
-  } else if (icon === "02d.png" ||icon === "02n.png") {
+  } else if (icon === "02d" ||icon === "02n") {
     iconPath = "media/partly-cloudy.svg";
-  } else if (
-    icon === "03d.png" || icon === "03n.png" || icon === "04d.png" || icon === "04n.png") {
-      iconPath = "media/partly-cloudy.svg";
-    } else if ( icon === "09d.png" || icon === "09d.png") {
-      iconPath = "media/shower-rain.svg";
-    } else if ( icon === "10d.png" || icon === "10n.png") {
-      iconPath = "media/rainy.svg";
-    } else if (icon === "11d.png" || icon === "11n.png") {
-      iconPath = "media/lightning.svg";
-    } else if (icon === "13d.png" || icon === "13n.png") {
-      iconPath = "media/snow.svg";
-    } else if (icon == "50d.png" || icon === "50n.png") {
-      iconPath = "media/foggy.svg";
-    } else {
-      iconPath = "media/sunny.svg";
-    }
+  } else if (icon === "03d" || icon === "03n" || icon === "04d" || icon === "04n") {
+    iconPath = "media/partly-cloudy.svg";
+  } else if ( icon === "09d" || icon === "09d") {
+    iconPath = "media/shower-rain.svg";
+  } else if ( icon === "10d" || icon === "10n") {
+    iconPath = "media/rainy.svg";
+  } else if (icon === "11d" || icon === "11n") {
+    iconPath = "media/lightning.svg";
+  } else if (icon === "13d" || icon === "13n") {
+    iconPath = "media/snow.svg";
+  } else if (icon == "50d" || icon === "50n") {
+    iconPath = "media/foggy.svg";
+  } else {
+    iconPath = "media/sunny.svg";
+  }
 
-    return iconPath;
+  return iconPath;
 }
 
 function displayForecast(response) {
@@ -108,7 +105,8 @@ function displayForecast(response) {
   
   let forecastHTML = `<div class="row ">`;
   forecast.forEach(function(forecastDay, index) {
-    if (index < 6) {
+    console.log(forecastDay.weather[0]);
+    if (index < 5) {
         forecastHTML =
           forecastHTML +
           `    
@@ -122,9 +120,9 @@ function displayForecast(response) {
             <div class="col-2">
               <img 
               class="forecast-weather"
-              src= ${displayImage(forecastDay.weather[0].icon)}
-              alt= ${forecastDay.weather[0].description}
-              width = "50px"
+              src= "${displayImage(forecastDay.weather[0].icon)}"
+              alt= "${forecastDay.weather[0].description}"
+              width = "30px"
               />
             </div>
           </div>
@@ -135,8 +133,6 @@ function displayForecast(response) {
 
   forecastElement.innerHTML = forecastHTML;
 }
-
-
 
 function showCurrentLocation(event) {
   event.preventDefault();
@@ -157,6 +153,25 @@ function displayCelsiusTemp(event) {
   displayFeelingTemp.innerHTML = Math.round(celsiusTemp);
 }
 
+function goToSydney(event) {
+  event.preventDefault;
+  searchCity("Sydney");
+}
+
+function goToNewYork(event) {
+  event.preventDefault;
+  searchCity("New York");
+}
+
+function goToCannes(event) {
+  event.preventDefault;
+  searchCity("Cannes");
+}
+
+function goToSingapore(event) {
+  event.preventDefault;
+  searchCity("Singapore");
+}
 
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", handleSubmit);
@@ -164,5 +179,16 @@ cityForm.addEventListener("submit", handleSubmit);
 let currentLocationBtn = document.querySelector("#current-location");
 currentLocationBtn.addEventListener("click", showCurrentLocation);
 
+let sydneyBtn = document.querySelector("#Sydney");
+sydneyBtn.addEventListener("click", goToSydney);
+
+let newYorkBtn = document.querySelector("#New-York");
+newYorkBtn.addEventListener("click", goToNewYork);
+
+let cannesBtn = document.querySelector("#Cannes");
+cannesBtn.addEventListener("click", goToCannes);
+
+let singaporeBtn = document.querySelector("#Singapore");
+singaporeBtn.addEventListener("click", goToSingapore);
 
 searchCity("Ålesund");
