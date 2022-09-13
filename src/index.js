@@ -135,8 +135,6 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-
-
 function searchPosition(position) {
   let apiKey = `b9b01b314c8b7bd51fdfba206fbf2d6a`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
@@ -173,8 +171,6 @@ function goToSingapore(event) {
 
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", handleSubmit);
-
-
 
 let sydneyBtn = document.querySelector("#Sydney");
 sydneyBtn.addEventListener("click", goToSydney);
