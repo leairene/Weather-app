@@ -134,10 +134,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-function showCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchPosition);
-}
+
 
 function searchPosition(position) {
   let apiKey = `b9b01b314c8b7bd51fdfba206fbf2d6a`;
@@ -176,8 +173,7 @@ function goToSingapore(event) {
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", handleSubmit);
 
-let currentLocationBtn = document.querySelector("#current-location");
-currentLocationBtn.addEventListener("click", showCurrentLocation);
+
 
 let sydneyBtn = document.querySelector("#Sydney");
 sydneyBtn.addEventListener("click", goToSydney);

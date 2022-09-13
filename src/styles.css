@@ -64,6 +64,7 @@ h4:first-letter {
 
 section {
   line-height: 10px;
+  width: 99%;
 }
 
 section p {
@@ -71,7 +72,7 @@ section p {
 }
 
 .search-bar {
-  padding: 10px 100px;
+  padding: 10px 180px;
   margin: 0 auto;
   border-radius: 0;
   border: none;
@@ -83,6 +84,7 @@ section p {
   border-radius: 0;
   border: none;
   background-color: white;
+  border-left: 2px solid black;
 }
 
 .search-button:hover {
@@ -96,13 +98,7 @@ section p {
   margin: 0 auto;
 }
 
-.col-3 {
-  border-left: 2px solid black;
-}
 
-.col-3:hover {
-  background-color: #efefef;
-}
 
 ul {
   text-align: center;
